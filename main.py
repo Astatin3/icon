@@ -1,15 +1,17 @@
 import drawsvg as draw
 import math
 
-size = 8192
 
 GREEN = '#00ff00'
 BLACK = '#000000'
 WHITE = '#ffffff'
 
-d = draw.Drawing(size*2, size*2, origin='center')
+#crop = (210/256)
+crop= 1
+size = 4096 / crop
+d = draw.Drawing(size*2*crop, size*2*crop, origin='center')
 
-d.append(draw.Rectangle(-size, -size, size*2 ,size*2, fill=BLACK))
+d.append(draw.Rectangle(-size*crop, -size*crop, size*2*crop ,size*2*crop, fill=BLACK))
 
 def draw_oct(r:float, c):
     r += r-r*math.sin(math.pi*0.625)
